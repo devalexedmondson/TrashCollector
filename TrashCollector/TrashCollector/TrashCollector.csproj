@@ -201,29 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702281537435_added zip table.cs" />
-    <Compile Include="Migrations\201702281537435_added zip table.Designer.cs">
-      <DependentUpon>201702281537435_added zip table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702281543078_added city.cs" />
-    <Compile Include="Migrations\201702281543078_added city.Designer.cs">
-      <DependentUpon>201702281543078_added city.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702281545072_added state table.cs" />
-    <Compile Include="Migrations\201702281545072_added state table.Designer.cs">
-      <DependentUpon>201702281545072_added state table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702281601062_added address table.cs" />
-    <Compile Include="Migrations\201702281601062_added address table.Designer.cs">
-      <DependentUpon>201702281601062_added address table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702281606324_added Pickupoptions.cs" />
-    <Compile Include="Migrations\201702281606324_added Pickupoptions.Designer.cs">
-      <DependentUpon>201702281606324_added Pickupoptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702281616191_added puo, user, collector, and client table.cs" />
-    <Compile Include="Migrations\201702281616191_added puo, user, collector, and client table.Designer.cs">
-      <DependentUpon>201702281616191_added puo, user, collector, and client table.cs</DependentUpon>
+    <Compile Include="Migrations\201702281640204_Adding Database.cs" />
+    <Compile Include="Migrations\201702281640204_Adding Database.Designer.cs">
+      <DependentUpon>201702281640204_Adding Database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -312,23 +292,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702281537435_added zip table.resx">
-      <DependentUpon>201702281537435_added zip table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702281543078_added city.resx">
-      <DependentUpon>201702281543078_added city.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702281545072_added state table.resx">
-      <DependentUpon>201702281545072_added state table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702281601062_added address table.resx">
-      <DependentUpon>201702281601062_added address table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702281606324_added Pickupoptions.resx">
-      <DependentUpon>201702281606324_added Pickupoptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702281616191_added puo, user, collector, and client table.resx">
-      <DependentUpon>201702281616191_added puo, user, collector, and client table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702281640204_Adding Database.resx">
+      <DependentUpon>201702281640204_Adding Database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
