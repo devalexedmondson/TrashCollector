@@ -10,9 +10,9 @@ namespace TrashCollector.Models
     public class Pick_Up_Options
     {
         [Key]
-        public int Pick_Up_OptionsID { get; set; }
-        [ForeignKey("Zip")]
-        public int TimeID { get; set; }
-        public virtual Time Day { get; set; }
+        public int ID { get; set; }
+        public virtual Time Normal { get; set; }
+        public virtual Time Substitute { get; set; }
+        public virtual Time Absent { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace TrashCollector.Models
     public class Zip
     {
         [Key]
-        public int ZipID { get; set;}
+        public int ID { get; set;}
         public int Zipcode { get; set;}
     }
 }

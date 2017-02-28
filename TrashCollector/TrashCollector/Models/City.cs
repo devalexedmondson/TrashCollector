@@ -10,7 +10,7 @@ namespace TrashCollector.Models
     public class City
     {
         [Key]
-        public int CityID { get; set;}
-        public string City { get; set;}
+        public int ID { get; set;}
+        public string CityName { get; set;}
     }
 }

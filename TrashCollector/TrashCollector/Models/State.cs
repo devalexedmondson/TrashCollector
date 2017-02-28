@@ -10,7 +10,7 @@ namespace TrashCollector.Models
     public class State
     {
         [Key]
-        public int StateID { get; set; }
-        public string State { get; set; }
+        public int ID { get; set; }
+        public string StateName { get; set; }
     }
 }

@@ -29,5 +29,13 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Zip> Zip { get; set; }
+        public DbSet<City>City { get; set; }
+        public DbSet<State> State { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<Pick_Up_Options> Pick_Up_Options { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Collector> Collector { get; set; }
+        public DbSet<Client> Client { get; set; }
     }
 }

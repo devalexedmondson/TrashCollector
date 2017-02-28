@@ -10,6 +10,7 @@ namespace TrashCollector.Models
     public class Client
     {
         [Key]
-        public int ClientID { get; set; }
+        public int ID { get; set; }
+        public virtual User UserID { get; set; }
     }
 }
