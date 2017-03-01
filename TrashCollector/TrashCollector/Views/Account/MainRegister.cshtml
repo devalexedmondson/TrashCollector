@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Main Register";
+}
+
+<div class="jumbotron">
+    <h1>Register Selection</h1>
+    <p class="lead"></p>
+</div>
+
+<div class="row">
+    <div class="col-md-6, col-lg-6">
+        <h2>Register as a User</h2>
+        @Html.ActionLink("User", "UserRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    </div>
+    <div class="col-md-6, col-lg-6">
+        <h2>Register as a Collector</h2>
+        @Html.ActionLink("Collector", "CollectorRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    </div>
+</div>
+
