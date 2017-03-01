@@ -176,7 +176,7 @@ namespace TrashCollector.Controllers
         //
         // GET: /Account/UserRegister
         [AllowAnonymous]
-        public ActionResult UserRegister()
+        public ActionResult Register()
         {
             return View();
         }
@@ -185,7 +185,7 @@ namespace TrashCollector.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> UserRegister(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

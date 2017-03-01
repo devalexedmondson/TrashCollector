@@ -11,6 +11,6 @@ namespace TrashCollector.Models
     {
         [Key]
         public int ID { get; set; }
-        public virtual ApplicationUser UserID { get; set; }
+        //public virtual ApplicationUser UserID { get; set; }
     }
 }

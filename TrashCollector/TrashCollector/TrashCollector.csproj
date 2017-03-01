@@ -209,6 +209,26 @@
     <Compile Include="Migrations\201703011732400_add FK to User.Designer.cs">
       <DependentUpon>201703011732400_add FK to User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703012150036_adding user.cs" />
+    <Compile Include="Migrations\201703012150036_adding user.Designer.cs">
+      <DependentUpon>201703012150036_adding user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703012158108_deleted collector table.cs" />
+    <Compile Include="Migrations\201703012158108_deleted collector table.Designer.cs">
+      <DependentUpon>201703012158108_deleted collector table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703012202394_added collector table.cs" />
+    <Compile Include="Migrations\201703012202394_added collector table.Designer.cs">
+      <DependentUpon>201703012202394_added collector table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703012210259_added email to collector table.cs" />
+    <Compile Include="Migrations\201703012210259_added email to collector table.Designer.cs">
+      <DependentUpon>201703012210259_added email to collector table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703012214109_deleted email from collector table.cs" />
+    <Compile Include="Migrations\201703012214109_deleted email from collector table.Designer.cs">
+      <DependentUpon>201703012214109_deleted email from collector table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -269,7 +289,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\UserRegister.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -304,6 +324,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703011732400_add FK to User.resx">
       <DependentUpon>201703011732400_add FK to User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703012150036_adding user.resx">
+      <DependentUpon>201703012150036_adding user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703012158108_deleted collector table.resx">
+      <DependentUpon>201703012158108_deleted collector table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703012202394_added collector table.resx">
+      <DependentUpon>201703012202394_added collector table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703012210259_added email to collector table.resx">
+      <DependentUpon>201703012210259_added email to collector table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703012214109_deleted email from collector table.resx">
+      <DependentUpon>201703012214109_deleted email from collector table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
