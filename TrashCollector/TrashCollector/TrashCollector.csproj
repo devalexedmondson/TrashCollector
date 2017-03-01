@@ -286,7 +286,6 @@
     <Content Include="Views\Account\MainRegister.cshtml" />
     <Content Include="Views\LandingPage\UserPage.cshtml" />
     <Content Include="Views\LandingPage\CollectorPage.cshtml" />
-    <Content Include="Views\Account\UserSettings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
