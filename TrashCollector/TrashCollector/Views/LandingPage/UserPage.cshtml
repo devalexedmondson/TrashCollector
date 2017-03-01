@@ -20,10 +20,11 @@
     <div class="col-md-4">
         <h2>Change Schedule?</h2>
         <p>Click this button if you would like to change your pickup settings.</p>
-        @Html.ActionLink("Pickup settings", "Settings", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        @Html.ActionLink("Pickup settings", "UserSettings", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
     </div>
     <div class="col-md-4">
-        @Html.ActionLink("Map", "MainRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        <h2>Dues</h2>
+        <p>You owe: $30</p>
     </div>
 </div>
 
