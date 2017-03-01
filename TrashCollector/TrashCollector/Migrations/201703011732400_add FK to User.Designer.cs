@@ -7,13 +7,13 @@ namespace TrashCollector.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddingDatabase : IMigrationMetadata
+    public sealed partial class addFKtoUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddingDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addFKtoUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702281640204_Adding Database"; }
+            get { return "201703011732400_add FK to User"; }
         }
         
         string IMigrationMetadata.Source

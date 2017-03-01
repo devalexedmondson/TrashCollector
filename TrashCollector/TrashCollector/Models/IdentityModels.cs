@@ -16,6 +16,8 @@ namespace TrashCollector.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public virtual Address Address_ID { get; set; }
+        public virtual Pick_Up_Options PickUpOptionsID { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -34,7 +36,6 @@ namespace TrashCollector.Models
         public DbSet<State> State { get; set; }
         public DbSet<Address> Address { get; set; }
         public DbSet<Pick_Up_Options> Pick_Up_Options { get; set; }
-        public DbSet<User> User { get; set; }
         public DbSet<Collector> Collector { get; set; }
         public DbSet<Client> Client { get; set; }
     }
