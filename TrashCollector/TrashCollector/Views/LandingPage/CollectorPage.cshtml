@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "CollectorPage";
+}
+
+<div class="jumbotron">
+    <h1>Collector Page</h1>
+    <p class="lead"></p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>About Trash Collector</h2>
+        <p>
+            Qunilex has been serving the community for 50,000,000 generations. We specialize in cleaning up ViewBags when it is convienient for you! Cuddles?
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Log in</h2>
+        <p>Click this button if you would like to login.</p>
+        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    </div>
+    <div class="col-md-4">
+        <h2>Register</h2>
+        <p>Click this button to register yourself.</p>
+        @Html.ActionLink("Register as a new user", "MainRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    </div>
+</div>
