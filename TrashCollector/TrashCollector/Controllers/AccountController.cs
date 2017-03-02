@@ -211,7 +211,7 @@ namespace TrashCollector.Controllers
         }
 
         //
-        // GET: /Account/Register
+        // GET: /Account/Register  //new register
         [AllowAnonymous]
         public ActionResult Register()
         {
