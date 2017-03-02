@@ -18,6 +18,7 @@ namespace TrashCollector.Models
         }
         public virtual Customer CustomerInfo { get; set; }
         public virtual Collector CollectorInfo { get; set; }
+        public string Name { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

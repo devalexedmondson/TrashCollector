@@ -65,7 +65,7 @@ namespace TrashCollector.Models
     public class RegisterViewModel
     {
         [Required]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Use letters only please")]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
@@ -78,7 +78,7 @@ namespace TrashCollector.Models
         //[Display(Name = "Street Address")]
         //public string StreetAddress { get; set; }
 
-       
+
         //[Display(Name = "Apartment/Suite")]
         //public string Suite { get; set; }
 
