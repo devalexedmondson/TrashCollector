@@ -7,11 +7,12 @@ using System.Web;
 
 namespace TrashCollector.Models
 {
-    public class Collector
+    public class Customer
     {
         [Key]
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
-        public virtual Zip Zip_ID { get; set; }
+        public Address Address_ID { get; set; }
+        public virtual Pick_Up_Options PickUpOptionsID { get; set; }
     }
 }

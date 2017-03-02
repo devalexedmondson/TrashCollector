@@ -137,7 +137,7 @@ namespace TrashCollector.Controllers
         //
         // GET: /Account/MainRegister
         [AllowAnonymous]
-        public ActionResult MainRegister()
+        public ActionResult SelectionRegister()
         {
             return View();
         }
@@ -146,7 +146,7 @@ namespace TrashCollector.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> MainRegister(RegisterViewModel model)
+        public async Task<ActionResult> SelectionRegister(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -174,18 +174,18 @@ namespace TrashCollector.Controllers
 
 
         //
-        // GET: /Account/UserRegister
+        // GET: /Account/CustomerRegister
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult CustomerRegister()
         {
             return View();
         }
         //
-        // POST: /Account/UserRegister
+        // POST: /Account/CustomerRegister
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> CustomerRegister(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -211,18 +211,18 @@ namespace TrashCollector.Controllers
         }
 
         //
-        // GET: /Account/CollectorRegister
+        // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult CollectorRegister()
+        public ActionResult Register()
         {
             return View();
         }
         //
-        // POST: /Account/CollectorRegister
+        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CollectorRegister(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

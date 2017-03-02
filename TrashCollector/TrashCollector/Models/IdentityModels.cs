@@ -16,8 +16,8 @@ namespace TrashCollector.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public virtual Address Address_ID { get; set; }
-        public virtual Pick_Up_Options PickUpOptionsID { get; set; }
+        public virtual Customer CustomerInfo { get; set; }
+        public virtual Collector CollectorInfo { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

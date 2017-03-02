@@ -74,28 +74,28 @@ namespace TrashCollector.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [Display(Name = "Street Address")]
-        public string StreetAddress { get; set; }
+        //[Required]
+        //[Display(Name = "Street Address")]
+        //public string StreetAddress { get; set; }
 
        
-        [Display(Name = "Apartment/Suite")]
-        public string Suite { get; set; }
+        //[Display(Name = "Apartment/Suite")]
+        //public string Suite { get; set; }
 
-        [Required]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for city please")]
-        [Display(Name = "City")]
-        public string City { get; set; }
+        //[Required]
+        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for city please")]
+        //[Display(Name = "City")]
+        //public string City { get; set; }
 
-        [Required]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for state please")]
-        [Display(Name = "State")]
-        public string State { get; set; }
+        //[Required]
+        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for state please")]
+        //[Display(Name = "State")]
+        //public string State { get; set; }
 
-        [Required]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "Use numbers for zipcode please")]
-        [Display(Name = "Zipcode")]
-        public string Zipcode { get; set; }
+        //[Required]
+        //[RegularExpression("^[0-9]*$", ErrorMessage = "Use numbers for zipcode please")]
+        //[Display(Name = "Zipcode")]
+        //public string Zipcode { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
