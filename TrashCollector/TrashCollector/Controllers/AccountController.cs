@@ -226,7 +226,7 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, CustomerInfo= new Customer() {Address_ID =new Address() { Street = model.StreetAddress, Suite = model.Suite } }  };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

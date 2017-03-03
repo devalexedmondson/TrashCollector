@@ -79,8 +79,8 @@ namespace TrashCollector.Models
         public string StreetAddress { get; set; }
 
 
-        //[Display(Name = "Apartment/Suite")]
-        //public string Suite { get; set; }
+        [Display(Name = "Apartment/Suite")]
+        public string Suite { get; set; }
 
         //[Required]
         //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for city please")]
