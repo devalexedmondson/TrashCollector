@@ -80,15 +80,7 @@ namespace TrashCollector.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (User.IsInRole("customer"))
-                    {
-                        return RedirectToAction("CustomerPage", "Home");
-                    }
-                    else if (User.IsInRole("collector"))
-                    {
-                        return RedirectToAction("CollectorPage", "Home");
-                    }
-                    else return RedirectToLocal(returnUrl);
+                    return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -213,15 +205,7 @@ namespace TrashCollector.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    if (model.Role == "customer")
-                    {
-                        return RedirectToAction("CustomerPage", "Home");
-                    }
-                    else if (model.Role == "collector")
-                    {
-                        return RedirectToAction("CollectorPage", "Home");
-                    }
-                    else return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
