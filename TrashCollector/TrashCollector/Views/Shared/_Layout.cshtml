@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,11 +18,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Trash Collector", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (Request.IsAuthenticated)
+                {
+                    if (User.IsInRole("customer"))
+                    {
+                        @Html.ActionLink("TrashCollector", "CustomerPage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    if (User.IsInRole("collector"))
+                    {
+                        @Html.ActionLink("TrashCollector", "CollectorPage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                }else
+                {
+                    @Html.ActionLink("Trash Collector", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("customer"))
+                            {
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "CustomerPage", "Home")
+                            }
+                            if (User.IsInRole("collector"))
+                            {
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "CollectorPage", "Home")
+                            }
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Home", "Index", "Home")
+                        }
+                    </li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                    @* <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>

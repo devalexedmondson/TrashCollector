@@ -12,6 +12,14 @@ namespace TrashCollector.Controllers
         {
             return View();
         }
+        public ActionResult CollectorPage()
+        {
+            return View();
+        }
+        public ActionResult CustomerPage()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {

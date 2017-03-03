@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "CollectorPage";
+}
+
+<div class="jumbotron">
+    <h1>Trash Collector</h1>
+    <p class="lead"></p>
+    <h2>Welcome Collector @User.Identity.GetUserName()</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Addresses</h2>
+        <p>
+            Addresses
+        </p>
+    </div>
+    <div class="col-md-6">
+        <div id="googleMap" style="height:400px;"></div>
+
+        <script>
+        function myMap() {
+            var customerMap = {
+                center: { lat: 43.034134, lng: -87.911953 },
+                zoom: 12
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), customerMap);
+
+            var marker = new google.maps.Marker({
+                position: { lat: 43.034134, lng: -87.911953 },
+                draggable: false,
+                title: "DevCodeCamp",
+                animation: google.maps.Animation.DROP
+            });
+            marker.setMap(map);
+            @*  This code will set the markers dynamically from a query result of
+                Use foreach loop
+                 --->id/gpsLat/ gpsLong/ name
+
+                var markerCode = @"marker = new google.maps.Marker({
+                position: { "+String.Format("lat: {0}, lng: {1}", item.gpsLat, item.gpsLong)+@" },
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                title: "+item.lName+"}});"; @markerCode  *@
+        }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi62KbulZmb99ybJmvf8t78lOUZvYOY94&callback=myMap">
+        </script>
+    </div>
+</div>

@@ -209,6 +209,26 @@
     <Compile Include="Migrations\201703032256168_added change address pickupoptions.Designer.cs">
       <DependentUpon>201703032256168_added change address pickupoptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703032115156_Added CollectorPage and CustomerPage to Home.cs" />
+    <Compile Include="Migrations\201703032115156_Added CollectorPage and CustomerPage to Home.Designer.cs">
+      <DependentUpon>201703032115156_Added CollectorPage and CustomerPage to Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703032148315_Linked Customer and Collector pages from register.cs" />
+    <Compile Include="Migrations\201703032148315_Linked Customer and Collector pages from register.Designer.cs">
+      <DependentUpon>201703032148315_Linked Customer and Collector pages from register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703032154156_Fixed links to role == ....cs" />
+    <Compile Include="Migrations\201703032154156_Fixed links to role == ....Designer.cs">
+      <DependentUpon>201703032154156_Fixed links to role == ....cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703032204240_Trying model.Role.cs" />
+    <Compile Include="Migrations\201703032204240_Trying model.Role.Designer.cs">
+      <DependentUpon>201703032204240_Trying model.Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703032215122_Switched logInController to link to userPage.cs" />
+    <Compile Include="Migrations\201703032215122_Switched logInController to link to userPage.Designer.cs">
+      <DependentUpon>201703032215122_Switched logInController to link to userPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -288,6 +308,8 @@
     <Content Include="Views\LandingPage\CollectorPage.cshtml" />
     <Content Include="Views\Manage\ChangeAddress.cshtml" />
     <Content Include="Views\Manage\PickUpOptions.cshtml" />
+    <Content Include="Views\Home\CustomerPage.cshtml" />
+    <Content Include="Views\Home\CollectorPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +330,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703032256168_added change address pickupoptions.resx">
       <DependentUpon>201703032256168_added change address pickupoptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032115156_Added CollectorPage and CustomerPage to Home.resx">
+      <DependentUpon>201703032115156_Added CollectorPage and CustomerPage to Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032148315_Linked Customer and Collector pages from register.resx">
+      <DependentUpon>201703032148315_Linked Customer and Collector pages from register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032154156_Fixed links to role == ....resx">
+      <DependentUpon>201703032154156_Fixed links to role == ....cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032204240_Trying model.Role.resx">
+      <DependentUpon>201703032204240_Trying model.Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032215122_Switched logInController to link to userPage.resx">
+      <DependentUpon>201703032215122_Switched logInController to link to userPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
