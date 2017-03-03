@@ -74,9 +74,9 @@ namespace TrashCollector.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        //[Required]
-        //[Display(Name = "Street Address")]
-        //public string StreetAddress { get; set; }
+        [Required]
+        [Display(Name = "Street Address")]
+        public string StreetAddress { get; set; }
 
 
         //[Display(Name = "Apartment/Suite")]

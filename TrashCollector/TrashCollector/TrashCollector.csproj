@@ -237,6 +237,22 @@
     <Compile Include="Migrations\201703022240120_added name column to user.Designer.cs">
       <DependentUpon>201703022240120_added name column to user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703022321402_added zipcodes to database to test drop down function.cs" />
+    <Compile Include="Migrations\201703022321402_added zipcodes to database to test drop down function.Designer.cs">
+      <DependentUpon>201703022321402_added zipcodes to database to test drop down function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703022350135_deleted time of day column.cs" />
+    <Compile Include="Migrations\201703022350135_deleted time of day column.Designer.cs">
+      <DependentUpon>201703022350135_deleted time of day column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703030004194_corrected time table.cs" />
+    <Compile Include="Migrations\201703030004194_corrected time table.Designer.cs">
+      <DependentUpon>201703030004194_corrected time table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703030006103_deleted time of day from time model.cs" />
+    <Compile Include="Migrations\201703030006103_deleted time of day from time model.Designer.cs">
+      <DependentUpon>201703030006103_deleted time of day from time model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -354,6 +370,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703022240120_added name column to user.resx">
       <DependentUpon>201703022240120_added name column to user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022321402_added zipcodes to database to test drop down function.resx">
+      <DependentUpon>201703022321402_added zipcodes to database to test drop down function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022350135_deleted time of day column.resx">
+      <DependentUpon>201703022350135_deleted time of day column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703030004194_corrected time table.resx">
+      <DependentUpon>201703030004194_corrected time table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703030006103_deleted time of day from time model.resx">
+      <DependentUpon>201703030006103_deleted time of day from time model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

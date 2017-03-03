@@ -12,6 +12,6 @@ namespace TrashCollector.Models
         [Key]
         public int ID { get; set; }
         public string Day { get; set; }
-        public string Time_Of_Day { get; set; }
+       
     }
 }
