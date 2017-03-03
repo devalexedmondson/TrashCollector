@@ -210,14 +210,14 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //Register GET
         // GET: /Account/Register  //new register
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
-        //
+        //Register POST
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -226,10 +226,25 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, CustomerInfo= new Customer() {Address_ID =new Address() { Street = model.StreetAddress, Suite = model.Suite } }  };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    CustomerInfo = new Customer()
+                    {
+                        Address_ID = new Address()
+                        {
+                            Street = model.StreetAddress,
+                            Suite = model.Suite
+                        }
+                    }
+                };
+                var role = (model.Role);
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, role);
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

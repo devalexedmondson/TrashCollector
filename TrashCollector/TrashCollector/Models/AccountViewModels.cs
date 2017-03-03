@@ -75,9 +75,13 @@ namespace TrashCollector.Models
         public string Email { get; set; }
 
         [Required]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please type collector or customer")]
+        [Display(Name = "Role")]
+        public string Role { get; set; }
+
+        [Required]
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
-
 
         [Display(Name = "Apartment/Suite")]
         public string Suite { get; set; }

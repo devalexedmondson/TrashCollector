@@ -2,6 +2,7 @@ namespace TrashCollector.Migrations
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -28,13 +29,13 @@ namespace TrashCollector.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            context.Roles.AddOrUpdate(r => r.Name,
-               new IdentityRole { Name = "Customer" },
-               new IdentityRole { Name = "Collector" }
-               );
+            //context.Roles.AddOrUpdate(r => r.Name,
+            //   new IdentityRole { Name = "Customer" },
+            //   new IdentityRole { Name = "Collector" }
+            //   );
 
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            string[] roleNames = { "Customer", "Collector" };
+            string[] roleNames = { "customer", "collector" };
             IdentityResult roleResult;
             foreach (var roleName in roleNames)
             {
@@ -44,7 +45,7 @@ namespace TrashCollector.Migrations
                 }
             }
 
-            //var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             //UserManager.AddToRole("4ab6f1c5-d0de-415f-a948-d7e2c2ca1068", "Customer");
         }
     }
