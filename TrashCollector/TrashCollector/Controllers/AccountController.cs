@@ -160,7 +160,10 @@ namespace TrashCollector.Controllers
                     Name = model.Name,
                     CustomerInfo = new Customer()
                     {
-                        PickUpOptionsID=new Pick_Up_Options() { Normal = new Time() },
+                        PickUpOptionsID=new Pick_Up_Options()
+                        {
+                            Normal = new Time()
+                        },
                         Address = new Address()
                         {
                             Street = model.StreetAddress,

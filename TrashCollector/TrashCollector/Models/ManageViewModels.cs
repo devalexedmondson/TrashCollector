@@ -8,6 +8,7 @@ namespace TrashCollector.Models
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }
+        public bool HasAddress { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
@@ -56,6 +57,37 @@ namespace TrashCollector.Models
         [Display(Name = "Confirm new password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+    public class PickUpOptionsViewModel
+    {
+        [Required]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Use only letters for they days of the week")]
+        [Display(Name = "Pick Up Day")]
+        public string PickUpDay { get; set; }
+    }
+    public class ChangeAddressViewModel
+    {
+        [Required]
+        [Display(Name = "Street Address")]
+        public string StreetAddress { get; set; }
+
+        [Display(Name = "Apartment/Suite")]
+        public string Suite { get; set; }
+
+        [Required]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for city please")]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters for state please")]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Use numbers for zipcode please")]
+        [Display(Name = "Zipcode")]
+        public int Zipcode { get; set; }
     }
 
     public class AddPhoneNumberViewModel

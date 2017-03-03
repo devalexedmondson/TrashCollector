@@ -50,17 +50,19 @@ namespace TrashCollector.Controllers
             }
         }
 
-        //
+        //MANAGE/INDEX
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                : message == ManageMessageId.PickUpOptionsSuccess ? "Your pick up options have been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.ChangeAddressSuccess ? "Your address has been changed."
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -75,7 +77,7 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //  REMOVELOGIN
         // POST: /Manage/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -99,14 +101,14 @@ namespace TrashCollector.Controllers
             return RedirectToAction("ManageLogins", new { Message = message });
         }
 
-        //
+        //ADD PHONE NUMBER
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {
             return View();
         }
 
-        //
+        //ADD PHONE NUMBER
         // POST: /Manage/AddPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -130,7 +132,7 @@ namespace TrashCollector.Controllers
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
         }
 
-        //
+        //ENABLE TWO FACTOR AUTHENTICATION
         // POST: /Manage/EnableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -145,7 +147,7 @@ namespace TrashCollector.Controllers
             return RedirectToAction("Index", "Manage");
         }
 
-        //
+        //DISABLE TWO FACTOR AUTHENTICATION
         // POST: /Manage/DisableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -160,7 +162,7 @@ namespace TrashCollector.Controllers
             return RedirectToAction("Index", "Manage");
         }
 
-        //
+        //VERIFY PHONE NUMBER
         // GET: /Manage/VerifyPhoneNumber
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
@@ -169,7 +171,7 @@ namespace TrashCollector.Controllers
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 
-        //
+        //VERIFY PHONE NUMBER
         // POST: /Manage/VerifyPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -194,7 +196,7 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //REMOVE PHONE NUMBER
         // POST: /Manage/RemovePhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -213,14 +215,14 @@ namespace TrashCollector.Controllers
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
 
-        //
+        //CHANGE PASSWORD
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
             return View();
         }
 
-        //
+        //CHANGEPASSWORD
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -244,14 +246,14 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //SET PASSWORD
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()
         {
             return View();
         }
 
-        //
+        //SET PASSWORD
         // POST: /Manage/SetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -276,7 +278,7 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //MANAGE LOGINS
         // GET: /Manage/ManageLogins
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
@@ -299,7 +301,7 @@ namespace TrashCollector.Controllers
             });
         }
 
-        //
+        //LINK LOGIN
         // POST: /Manage/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -309,7 +311,7 @@ namespace TrashCollector.Controllers
             return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
         }
 
-        //
+        //LINK LOGIN CALL BACK
         // GET: /Manage/LinkLoginCallback
         public async Task<ActionResult> LinkLoginCallback()
         {
@@ -362,7 +364,53 @@ namespace TrashCollector.Controllers
             }
             return false;
         }
+        private bool HasAddress()
+        {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user !=null)
+            {
+                return user.CustomerInfo.Address.Street != null;
+            }
+            return false;
+        }
+        //private bool HasPickUpOptions()
+        //{
+        //    var user = UserManager.FindById(User.Identity.GetUserId());
+        //    if (user != null)
+        //    {
+        //        return user.CustomerInfo.PickUpOptionsID.TimeID != null;
+        //    }
+        //    return false;
+        //}
 
+
+        //PICKUPOPTIONS
+        //GET:
+        [AllowAnonymous]
+        public ActionResult PickUpOptions()
+        {
+            return View();
+        }
+        //PICKUPOPTIONS POST
+        //POST: /Manage/PickUpOptions
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> PickUpOptions(PickUpOptionsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var pickUp = new Pick_Up_Options
+                {
+                    Normal = new Time()
+                    {
+                        Day = model.PickUpDay
+                    }
+                };
+                return RedirectToAction("Index", "Home");
+            }
+            return View(model);
+        }
         private bool HasPhoneNumber()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
@@ -377,6 +425,8 @@ namespace TrashCollector.Controllers
         {
             AddPhoneSuccess,
             ChangePasswordSuccess,
+            ChangeAddressSuccess,
+            PickUpOptionsSuccess,
             SetTwoFactorSuccess,
             SetPasswordSuccess,
             RemoveLoginSuccess,

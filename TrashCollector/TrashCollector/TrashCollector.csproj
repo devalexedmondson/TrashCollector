@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201703032016285_added database2.Designer.cs">
       <DependentUpon>201703032016285_added database2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703032256168_added change address pickupoptions.cs" />
+    <Compile Include="Migrations\201703032256168_added change address pickupoptions.Designer.cs">
+      <DependentUpon>201703032256168_added change address pickupoptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -282,9 +286,13 @@
     <Content Include="Views\Account\SelectionRegister.cshtml" />
     <Content Include="Views\LandingPage\UserPage.cshtml" />
     <Content Include="Views\LandingPage\CollectorPage.cshtml" />
+    <Content Include="Views\Manage\ChangeAddress.cshtml" />
+    <Content Include="Views\Manage\PickUpOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\201703032204239_added change address\" />
+    <Folder Include="Migrations\201703032254117_added change address\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -297,6 +305,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703032016285_added database2.resx">
       <DependentUpon>201703032016285_added database2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032256168_added change address pickupoptions.resx">
+      <DependentUpon>201703032256168_added change address pickupoptions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
