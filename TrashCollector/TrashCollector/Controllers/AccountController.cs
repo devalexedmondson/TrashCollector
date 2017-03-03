@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TrashCollector.Models;
+using System.Data.Entity.Validation;
 
 namespace TrashCollector.Controllers
 {
@@ -133,85 +134,10 @@ namespace TrashCollector.Controllers
                     return View(model);
             }
         }
-
-        //
-        // GET: /Account/MainRegister
-        [AllowAnonymous]
-        public ActionResult SelectionRegister()
-        {
-            return View();
-        }
-        //
-        // POST: /Account/MainRegister
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> SelectionRegister(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-
-
-        //
-        // GET: /Account/CustomerRegister
-        [AllowAnonymous]
-        public ActionResult CustomerRegister()
-        {
-            return View();
-        }
-        //
-        // POST: /Account/CustomerRegister
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CustomerRegister(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+        
 
         //Register GET
-        // GET: /Account/Register  //new register
+        // GET: /Account/Register  
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -228,20 +154,44 @@ namespace TrashCollector.Controllers
             {
                 var user = new ApplicationUser
                 {
+                    CollectorInfo = new Collector() { Zip_ID = new Zip() },                
                     UserName = model.Email,
                     Email = model.Email,
                     Name = model.Name,
                     CustomerInfo = new Customer()
                     {
-                        Address_ID = new Address()
+                        PickUpOptionsID=new Pick_Up_Options() { Normal = new Time() },
+                        Address = new Address()
                         {
                             Street = model.StreetAddress,
-                            Suite = model.Suite
+                            Suite = model.Suite,
+                            CityName = new City()
+                            {
+                                CityName = model.City
+                            },
+                            StateName = new State()
+                            {
+                                StateName = model.State
+                            }
+                             ,
+                            Zip = new Zip()
+                            {
+                                Zipcode = model.Zipcode
+
+                            }
                         }
                     }
                 };
                 var role = (model.Role);
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = default(IdentityResult);
+                try
+                {
+                result = await UserManager.CreateAsync(user, model.Password);
+
+                }catch(DbEntityValidationException e)
+                {
+
+                }
                 if (result.Succeeded)
                 {
                     UserManager.AddToRole(user.Id, role);
@@ -257,14 +207,10 @@ namespace TrashCollector.Controllers
                 }
                 AddErrors(result);
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-
-
-        //
+        
+        //CONFIRM EMAIL
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
@@ -277,7 +223,7 @@ namespace TrashCollector.Controllers
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
-        //
+        //FORGOT PASSWORD
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
         public ActionResult ForgotPassword()
@@ -285,7 +231,7 @@ namespace TrashCollector.Controllers
             return View();
         }
 
-        //
+        //FORGOT PASSWORD
         // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
@@ -313,7 +259,7 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //FORGOT PASSWORD CONFIRMATION
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
@@ -321,7 +267,7 @@ namespace TrashCollector.Controllers
             return View();
         }
 
-        //
+        //RESET PASSWORD
         // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
@@ -329,7 +275,7 @@ namespace TrashCollector.Controllers
             return code == null ? View("Error") : View();
         }
 
-        //
+        //RESET PASSWORD
         // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
@@ -355,7 +301,7 @@ namespace TrashCollector.Controllers
             return View();
         }
 
-        //
+        //RESET PASSWORDCONFIRMATION
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
@@ -363,7 +309,7 @@ namespace TrashCollector.Controllers
             return View();
         }
 
-        //
+        //EXTERNAL LOGIN
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
@@ -374,7 +320,7 @@ namespace TrashCollector.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
+        //SEND CODE
         // GET: /Account/SendCode
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
@@ -389,7 +335,7 @@ namespace TrashCollector.Controllers
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
+        //SEND CODE
         // POST: /Account/SendCode
         [HttpPost]
         [AllowAnonymous]
@@ -409,7 +355,7 @@ namespace TrashCollector.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        //
+        //EXTERNAL LOGIN CALL BACK
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -439,7 +385,7 @@ namespace TrashCollector.Controllers
             }
         }
 
-        //
+        //EXTERNAL LOGIN CONFIRMATION
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -477,7 +423,7 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
-        //
+        //LOGOFF
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -487,7 +433,7 @@ namespace TrashCollector.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
+        //EXTERNALLOGINFAILURE
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()

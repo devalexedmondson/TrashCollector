@@ -11,8 +11,9 @@ namespace TrashCollector.Models
     {
         [Key]
         public int ID { get; set; }
-        public virtual Time Normal { get; set; }
-        public virtual Time Substitute { get; set; }
-        public virtual Time Absent { get; set; }
+        public int TimeID { get; set; }
+
+        [ForeignKey("TimeID")]
+        public Time Normal { get; set; }
     }
 }

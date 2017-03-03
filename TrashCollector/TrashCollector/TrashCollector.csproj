@@ -201,57 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703011726456_initialmigration.cs" />
-    <Compile Include="Migrations\201703011726456_initialmigration.Designer.cs">
-      <DependentUpon>201703011726456_initialmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703011732400_add FK to User.cs" />
-    <Compile Include="Migrations\201703011732400_add FK to User.Designer.cs">
-      <DependentUpon>201703011732400_add FK to User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012150036_adding user.cs" />
-    <Compile Include="Migrations\201703012150036_adding user.Designer.cs">
-      <DependentUpon>201703012150036_adding user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012158108_deleted collector table.cs" />
-    <Compile Include="Migrations\201703012158108_deleted collector table.Designer.cs">
-      <DependentUpon>201703012158108_deleted collector table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012202394_added collector table.cs" />
-    <Compile Include="Migrations\201703012202394_added collector table.Designer.cs">
-      <DependentUpon>201703012202394_added collector table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012210259_added email to collector table.cs" />
-    <Compile Include="Migrations\201703012210259_added email to collector table.Designer.cs">
-      <DependentUpon>201703012210259_added email to collector table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012214109_deleted email from collector table.cs" />
-    <Compile Include="Migrations\201703012214109_deleted email from collector table.Designer.cs">
-      <DependentUpon>201703012214109_deleted email from collector table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012359394_made customer and collector FK on the ASPNetUser.cs" />
-    <Compile Include="Migrations\201703012359394_made customer and collector FK on the ASPNetUser.Designer.cs">
-      <DependentUpon>201703012359394_made customer and collector FK on the ASPNetUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703022240120_added name column to user.cs" />
-    <Compile Include="Migrations\201703022240120_added name column to user.Designer.cs">
-      <DependentUpon>201703022240120_added name column to user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703022321402_added zipcodes to database to test drop down function.cs" />
-    <Compile Include="Migrations\201703022321402_added zipcodes to database to test drop down function.Designer.cs">
-      <DependentUpon>201703022321402_added zipcodes to database to test drop down function.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703022350135_deleted time of day column.cs" />
-    <Compile Include="Migrations\201703022350135_deleted time of day column.Designer.cs">
-      <DependentUpon>201703022350135_deleted time of day column.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703030004194_corrected time table.cs" />
-    <Compile Include="Migrations\201703030004194_corrected time table.Designer.cs">
-      <DependentUpon>201703030004194_corrected time table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703030006103_deleted time of day from time model.cs" />
-    <Compile Include="Migrations\201703030006103_deleted time of day from time model.Designer.cs">
-      <DependentUpon>201703030006103_deleted time of day from time model.cs</DependentUpon>
+    <Compile Include="Migrations\201703032016285_added database2.cs" />
+    <Compile Include="Migrations\201703032016285_added database2.Designer.cs">
+      <DependentUpon>201703032016285_added database2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -343,44 +295,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703011726456_initialmigration.resx">
-      <DependentUpon>201703011726456_initialmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703011732400_add FK to User.resx">
-      <DependentUpon>201703011732400_add FK to User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012150036_adding user.resx">
-      <DependentUpon>201703012150036_adding user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012158108_deleted collector table.resx">
-      <DependentUpon>201703012158108_deleted collector table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012202394_added collector table.resx">
-      <DependentUpon>201703012202394_added collector table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012210259_added email to collector table.resx">
-      <DependentUpon>201703012210259_added email to collector table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012214109_deleted email from collector table.resx">
-      <DependentUpon>201703012214109_deleted email from collector table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012359394_made customer and collector FK on the ASPNetUser.resx">
-      <DependentUpon>201703012359394_made customer and collector FK on the ASPNetUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703022240120_added name column to user.resx">
-      <DependentUpon>201703022240120_added name column to user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703022321402_added zipcodes to database to test drop down function.resx">
-      <DependentUpon>201703022321402_added zipcodes to database to test drop down function.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703022350135_deleted time of day column.resx">
-      <DependentUpon>201703022350135_deleted time of day column.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703030004194_corrected time table.resx">
-      <DependentUpon>201703030004194_corrected time table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703030006103_deleted time of day from time model.resx">
-      <DependentUpon>201703030006103_deleted time of day from time model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703032016285_added database2.resx">
+      <DependentUpon>201703032016285_added database2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

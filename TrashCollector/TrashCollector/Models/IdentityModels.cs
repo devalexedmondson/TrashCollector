@@ -17,8 +17,14 @@ namespace TrashCollector.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public virtual Customer CustomerInfo { get; set; }
-        public virtual Collector CollectorInfo { get; set; }
+        public int CustomerID { get; set; }
+        [ForeignKey("CustomerID")]
+        public  Customer CustomerInfo { get; set; }
+
+        public int CollectorID { get; set; }
+        [ForeignKey("CollectorID")]
+        public  Collector CollectorInfo { get; set; }
+
         public string Name { get; set; }
     }
 
