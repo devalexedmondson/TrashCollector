@@ -246,6 +246,83 @@ namespace TrashCollector.Controllers
             return View(model);
         }
 
+        //public ActionResult ChangeAddress()
+        //{
+        //    return View();
+        //}
+
+        ////CHANGE ADDRESS
+        //// POST: /Manage/ChangeAddress
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> ChangeAddress(ChangeAddressViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+
+        //    Address = new Address()
+        //    {
+        //        Street = model.StreetAddress,
+        //        Suite = model.Suite,
+        //        CityName = new City()
+        //        {
+        //            CityName = model.City
+        //        },
+        //        StateName = new State()
+        //        {
+        //            StateName = model.State
+        //        }
+        //                 ,
+        //        Zip = new Zip()
+        //        {
+        //            Zipcode = model.Zipcode
+
+        //        }
+        //    };
+        //    if (result.Succeeded)
+        //    {
+        //        var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+        //        if (user != null)
+        //        {
+        //            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+        //        }
+        //        return RedirectToAction("Index", new { Message = ManageMessageId.ChangeAddressSuccess });
+        //    }
+        //    AddErrors(result);
+        //    return View(model);
+        //}
+
+
+        //PICKUPOPTIONS
+        //GET:
+        [AllowAnonymous]
+        public ActionResult PickUpOptions()
+        {
+            return View();
+        }
+        //PICKUPOPTIONS POST
+        //POST: /Manage/PickUpOptions
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> PickUpOptions(PickUpOptionsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var pickUp = new Pick_Up_Options
+                {
+                    Normal = new Time()
+                    {
+                        Day = model.PickUpDay
+                    }
+                };
+                return RedirectToAction("Index", "Home");
+            }
+            return View(model);
+        }
+
         //SET PASSWORD
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()
@@ -383,34 +460,7 @@ namespace TrashCollector.Controllers
         //    return false;
         //}
 
-
-        //PICKUPOPTIONS
-        //GET:
-        [AllowAnonymous]
-        public ActionResult PickUpOptions()
-        {
-            return View();
-        }
-        //PICKUPOPTIONS POST
-        //POST: /Manage/PickUpOptions
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> PickUpOptions(PickUpOptionsViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var pickUp = new Pick_Up_Options
-                {
-                    Normal = new Time()
-                    {
-                        Day = model.PickUpDay
-                    }
-                };
-                return RedirectToAction("Index", "Home");
-            }
-            return View(model);
-        }
+       
         private bool HasPhoneNumber()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());

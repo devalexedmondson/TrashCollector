@@ -25,7 +25,7 @@
         <p>Click this button to register yourself.</p>
         @Html.ActionLink("Register as a new user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
     </div>
-    <div id="googleMap" style="width:75%;height:400px;"></div>
+    <div id="googleMap" style="margin: 0 auto 0 auto; width:75%; height:400px;"></div>
 
     <script>
         function myMap() {
@@ -38,7 +38,7 @@
             var marker = new google.maps.Marker({
                 position: { lat: 43.034134, lng: -87.911953 },
                 draggable: false,
-                title: "DevCodeCamp",
+                title: "QuinLex HQ",
                 animation: google.maps.Animation.DROP
             });
             marker.setMap(map);

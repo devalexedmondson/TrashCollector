@@ -11,10 +11,10 @@
     <h4>Change Pick Up Options</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <p>Please type the day that you wish to have your trash picked up. Example 'Monday'.</p>
     <div class="form-group">
         @Html.LabelFor(m => m.PickUpDay, new { @class = "col-md-2 control-label" })
-        <p>Please type the day that you wish to have your trash picked up. Example 'Monday'.</p>
-        <br/>
+        
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.PickUpDay, new { @class = "form-control" })
         </div>
