@@ -10,15 +10,17 @@ namespace TrashCollector.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-        public ActionResult CollectorPage()
-        {
-            return View();
-        }
-        public ActionResult CustomerPage()
-        {
-            return View();
+            if (User.IsInRole("customer"))
+            {
+                return View("CustomerPage");
+            }
+            else if (User.IsInRole("collector"))
+            {
+                return View("CollectorPage");
+            }else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()

@@ -229,6 +229,14 @@
     <Compile Include="Migrations\201703032215122_Switched logInController to link to userPage.Designer.cs">
       <DependentUpon>201703032215122_Switched logInController to link to userPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703032335316_Deleted accountController home links.cs" />
+    <Compile Include="Migrations\201703032335316_Deleted accountController home links.Designer.cs">
+      <DependentUpon>201703032335316_Deleted accountController home links.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703032351220_Fixed all links to be routed by HomeController.Index%28%29.cs" />
+    <Compile Include="Migrations\201703032351220_Fixed all links to be routed by HomeController.Index%28%29.Designer.cs">
+      <DependentUpon>201703032351220_Fixed all links to be routed by HomeController.Index%28%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -345,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703032215122_Switched logInController to link to userPage.resx">
       <DependentUpon>201703032215122_Switched logInController to link to userPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032335316_Deleted accountController home links.resx">
+      <DependentUpon>201703032335316_Deleted accountController home links.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703032351220_Fixed all links to be routed by HomeController.Index%28%29.resx">
+      <DependentUpon>201703032351220_Fixed all links to be routed by HomeController.Index%28%29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

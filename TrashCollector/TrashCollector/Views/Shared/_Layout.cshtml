@@ -18,20 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @if (Request.IsAuthenticated)
-                {
-                    if (User.IsInRole("customer"))
-                    {
-                        @Html.ActionLink("TrashCollector", "CustomerPage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    }
-                    if (User.IsInRole("collector"))
-                    {
-                        @Html.ActionLink("TrashCollector", "CollectorPage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    }
-                }else
-                {
                     @Html.ActionLink("Trash Collector", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -40,11 +27,11 @@
                         {
                             if (User.IsInRole("customer"))
                             {
-                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "CustomerPage", "Home")
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Home")
                             }
                             if (User.IsInRole("collector"))
                             {
-                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "CollectorPage", "Home")
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Home")
                             }
                         }
                         else
