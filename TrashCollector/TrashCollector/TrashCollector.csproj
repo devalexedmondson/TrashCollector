@@ -249,6 +249,26 @@
     <Compile Include="Migrations\201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.Designer.cs">
       <DependentUpon>201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703061335239_deleted data inside database.cs" />
+    <Compile Include="Migrations\201703061335239_deleted data inside database.Designer.cs">
+      <DependentUpon>201703061335239_deleted data inside database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703061352160_added states, zip, and days of the week.cs" />
+    <Compile Include="Migrations\201703061352160_added states, zip, and days of the week.Designer.cs">
+      <DependentUpon>201703061352160_added states, zip, and days of the week.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703061618248_Added day to PUO table and corrected account controller.cs" />
+    <Compile Include="Migrations\201703061618248_Added day to PUO table and corrected account controller.Designer.cs">
+      <DependentUpon>201703061618248_Added day to PUO table and corrected account controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703061624397_deleted FK in PUO.cs" />
+    <Compile Include="Migrations\201703061624397_deleted FK in PUO.Designer.cs">
+      <DependentUpon>201703061624397_deleted FK in PUO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703061721265_deleted timeID.cs" />
+    <Compile Include="Migrations\201703061721265_deleted timeID.Designer.cs">
+      <DependentUpon>201703061721265_deleted timeID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -381,6 +401,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.resx">
       <DependentUpon>201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703061335239_deleted data inside database.resx">
+      <DependentUpon>201703061335239_deleted data inside database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703061352160_added states, zip, and days of the week.resx">
+      <DependentUpon>201703061352160_added states, zip, and days of the week.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703061618248_Added day to PUO table and corrected account controller.resx">
+      <DependentUpon>201703061618248_Added day to PUO table and corrected account controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703061624397_deleted FK in PUO.resx">
+      <DependentUpon>201703061624397_deleted FK in PUO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703061721265_deleted timeID.resx">
+      <DependentUpon>201703061721265_deleted timeID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

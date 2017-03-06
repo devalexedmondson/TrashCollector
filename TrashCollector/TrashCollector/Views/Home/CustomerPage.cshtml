@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
+@using TrashCollector.Models;
+@model TrashCollector.Models.RegisterViewModel
 @{
     ViewBag.Title = "UserPage";
 }
@@ -12,10 +14,9 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Schedule</h2>
-        <p>
-            Normal pickup time: Wednesday morning
-            <br />This weeks pickup time: Wednesday morning
-        </p>
+        <p>Normal pickup time: @Html.DisplayFor(model => model.PickUpDay)</p>
+            <br/>This weeks pickup time: @Html.DisplayFor(model => model.PickUpDay)
+        
     </div>
     <div class="col-md-4">
         <h2>Change Schedule?</h2>
@@ -24,7 +25,7 @@
     </div>
     <div class="col-md-4">
         <h2>Dues</h2>
-        <p>You owe: One zillion trillion billion million dollars!!!</p>
+        <p>You owe: $ 0 Dollars</p>
     </div>
 </div>
 

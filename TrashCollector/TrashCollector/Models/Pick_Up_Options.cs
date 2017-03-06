@@ -11,9 +11,6 @@ namespace TrashCollector.Models
     {
         [Key]
         public int ID { get; set; }
-        public int TimeID { get; set; }
-
-        [ForeignKey("TimeID")]
-        public Time Normal { get; set; }
+        public string Day { get; set; }
     }
 }

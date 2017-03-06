@@ -101,6 +101,10 @@ namespace TrashCollector.Models
         [Display(Name = "Zipcode")]
         public int Zipcode { get; set; }
 
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Use only letters for they days of the week")]
+        [Display(Name = "Pick Up Day")]
+        public string PickUpDay { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
