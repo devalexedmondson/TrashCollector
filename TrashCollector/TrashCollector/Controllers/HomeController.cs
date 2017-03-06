@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
@@ -22,7 +26,25 @@ namespace TrashCollector.Controllers
                 return View();
             }
         }
+        public ActionResult GetAddressForEachUser()
+        {
+            var userAddresses = new List<AddressesViewModel>();
+            var context = new ApplicationDbContext();
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+            
+            foreach (var user in userStore.Users)
+            {
+                var a = new AddressesViewModel
+                {
+                    Name = user.UserName,
+                    Street = "suh"
+                };
+                userAddresses.Add(a);
+            }
 
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

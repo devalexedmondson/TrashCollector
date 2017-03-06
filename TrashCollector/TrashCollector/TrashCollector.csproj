@@ -237,6 +237,18 @@
     <Compile Include="Migrations\201703032351220_Fixed all links to be routed by HomeController.Index%28%29.Designer.cs">
       <DependentUpon>201703032351220_Fixed all links to be routed by HomeController.Index%28%29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703050133021_Attempt one in finding customers.cs" />
+    <Compile Include="Migrations\201703050133021_Attempt one in finding customers.Designer.cs">
+      <DependentUpon>201703050133021_Attempt one in finding customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703060214064_Added AddressesViewModel.cs" />
+    <Compile Include="Migrations\201703060214064_Added AddressesViewModel.Designer.cs">
+      <DependentUpon>201703060214064_Added AddressesViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.cs" />
+    <Compile Include="Migrations\201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.Designer.cs">
+      <DependentUpon>201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -244,6 +256,7 @@
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Collector.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\HomeViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pick_Up_Options.cs" />
@@ -359,6 +372,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703032351220_Fixed all links to be routed by HomeController.Index%28%29.resx">
       <DependentUpon>201703032351220_Fixed all links to be routed by HomeController.Index%28%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703050133021_Attempt one in finding customers.resx">
+      <DependentUpon>201703050133021_Attempt one in finding customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703060214064_Added AddressesViewModel.resx">
+      <DependentUpon>201703060214064_Added AddressesViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.resx">
+      <DependentUpon>201703060308565_Created AddressesViewModel inside HomeViewModels %28also created%29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
