@@ -21,7 +21,7 @@ namespace TrashCollector.Controllers
             }
             else if (User.IsInRole("collector"))
             {
-                return View("CollectorPage");
+                return View("CollectorPage", new AddressesViewModel());
             }else
             {
                 return View();
@@ -29,49 +29,49 @@ namespace TrashCollector.Controllers
         }
 
 
-        //public ActionResult GetAddressForEachUser()
-        //{
-        //    var userAddresses = new List<AddressesViewModel>();
-        //    var context = new ApplicationDbContext();
-        //    var userStore = new UserStore<ApplicationUser>(context);
-        //    var userManager = new UserManager<ApplicationUser>(userStore);
-
-        //    foreach (var user in userStore.Users)
-        //    {
-
-        //        List<string> Address = new List<string>();
-        //        //foreach(var customerInfo in user.Id.CustomerID)
-        //        //{
-
-        //        //}
-        //        var a = new AddressesViewModel
-        //        {
-        //            Name = user.UserName//,
-        //            //Street = Address[0],
-
-
-        //        };
-        //        userAddresses.Add(a);
-        //    }
-        //    return View(userAddresses);
-        //}
-
-        public ActionResult UserList()
+        public ActionResult GetAddressForEachUser()
         {
-            var applicationDbContext = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-            var users = from u in applicationDbContext.Users
-                        //from ur in u.Roles
-                        //join r in ApplicationDbContext.Roles on ur.RoleId equals r.Id
-                        select new
-                        {
-                            u.Id,
-                            Name = u.UserName,
-                            //Role = /*r.Name,*/ 
-                        };
+            var userAddresses = new List<AddressesViewModel>();
+            var context = new ApplicationDbContext();
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
 
-            // users is anonymous type, map it to a Model 
-            return View(users);
+            foreach (var user in userStore.Users)
+            {
+
+                List<string> Address = new List<string>();
+                //foreach(var customerInfo in user.Id.CustomerID)
+                //{
+
+                //}
+                var a = new AddressesViewModel
+                {
+                    Name = user.UserName//,
+                    //Street = Address[0],
+
+
+                };
+                userAddresses.Add(a);
+            }
+            return View(userAddresses);
         }
+
+        //public ActionResult UserList()
+        //{
+        //    var applicationDbContext = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+        //    var users = from u in applicationDbContext.Users
+        //                //from ur in u.Roles
+        //                //join r in ApplicationDbContext.Roles on ur.RoleId equals r.Id
+        //                select new
+        //                {
+        //                    u.Id,
+        //                    Name = u.UserName,
+        //                    //Role = /*r.Name,*/ 
+        //                };
+
+        //    // users is anonymous type, map it to a Model 
+        //    return View(users);
+        //}
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
