@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TrashCollector.Models;
+using System.Data.Entity.Validation;
 
 namespace TrashCollector.Controllers
 {
@@ -312,10 +313,7 @@ namespace TrashCollector.Controllers
             {
                 var pickUp = new Pick_Up_Options
                 {
-                    Normal = new Time()
-                    {
-                        Day = model.PickUpDay
-                    }
+                    Day = model.PickUpDay
                 };
                 return RedirectToAction("Index", "Home");
             }
@@ -340,10 +338,8 @@ namespace TrashCollector.Controllers
             {
                 var pickUp = new Pick_Up_Options
                 {
-                    Normal = new Time()
-                    {
-                        Day = model.PickUpDay
-                    }
+                    Day = model.PickUpDay
+                    
                 };
                 return RedirectToAction("Index", "Home");
             }

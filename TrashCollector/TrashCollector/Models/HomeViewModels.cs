@@ -14,4 +14,8 @@ namespace TrashCollector.Models
         public string State { get; set; }
         public int Zip { get; set; }
     }
+    public class CustomerPickUpViewModel
+    {
+        public string CustomerPickUpDay { get; set; }
+    }
 }

@@ -17,7 +17,7 @@ namespace TrashCollector.Controllers
         {
             if (User.IsInRole("customer"))
             {
-                return View("CustomerPage");
+                return View("CustomerPage"/*, new Pick_Up_Options() { Day = "Monday" }*/ );
             }
             else if (User.IsInRole("collector"))
             {
@@ -26,6 +26,7 @@ namespace TrashCollector.Controllers
             {
                 return View();
             }
+
         }
 
 
