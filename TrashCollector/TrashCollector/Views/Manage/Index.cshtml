@@ -12,10 +12,17 @@
     <dl class="dl-horizontal">
         <dt>Pick Up Options</dt>
         <dd>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <p>Please type the day that you wish to have your trash picked up. Example 'Monday'.</p>
+            <div class="form-group">
+                @Html.LabelFor(m => m.PickUpDay, new { @class = "col-md-2 control-label" })
+
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.PickUpDay, new { @class = "form-control" })
+                </div>
+            </div>
             [
-            
-            @Html.ActionLink("Pick Up Options", "PickUpOptions")
-            
+                @Html.ActionLink("Change Pick Up Options", "ChangePickUpOptions")          
             ]
         </dd>
         <dt>Password:</dt>
@@ -29,7 +36,7 @@
             {
                 @Html.ActionLink("Create", "SetPassword")
             }
-            ]
+            
         </dd>
         
         
