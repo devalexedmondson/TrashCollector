@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,24 +27,50 @@ namespace TrashCollector.Controllers
                 return View();
             }
         }
-        public ActionResult GetAddressForEachUser()
-        {
-            var userAddresses = new List<AddressesViewModel>();
-            var context = new ApplicationDbContext();
-            var userStore = new UserStore<ApplicationUser>(context);
-            var userManager = new UserManager<ApplicationUser>(userStore);
-            
-            foreach (var user in userStore.Users)
-            {
-                var a = new AddressesViewModel
-                {
-                    Name = user.UserName,
-                    Street = "suh"
-                };
-                userAddresses.Add(a);
-            }
 
-            return View();
+
+        //public ActionResult GetAddressForEachUser()
+        //{
+        //    var userAddresses = new List<AddressesViewModel>();
+        //    var context = new ApplicationDbContext();
+        //    var userStore = new UserStore<ApplicationUser>(context);
+        //    var userManager = new UserManager<ApplicationUser>(userStore);
+
+        //    foreach (var user in userStore.Users)
+        //    {
+
+        //        List<string> Address = new List<string>();
+        //        //foreach(var customerInfo in user.Id.CustomerID)
+        //        //{
+
+        //        //}
+        //        var a = new AddressesViewModel
+        //        {
+        //            Name = user.UserName//,
+        //            //Street = Address[0],
+
+
+        //        };
+        //        userAddresses.Add(a);
+        //    }
+        //    return View(userAddresses);
+        //}
+
+        public ActionResult UserList()
+        {
+            var applicationDbContext = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
+            var users = from u in applicationDbContext.Users
+                        //from ur in u.Roles
+                        //join r in ApplicationDbContext.Roles on ur.RoleId equals r.Id
+                        select new
+                        {
+                            u.Id,
+                            Name = u.UserName,
+                            //Role = /*r.Name,*/ 
+                        };
+
+            // users is anonymous type, map it to a Model 
+            return View(users);
         }
         public ActionResult About()
         {
