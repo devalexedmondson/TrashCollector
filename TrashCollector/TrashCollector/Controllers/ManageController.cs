@@ -56,7 +56,6 @@ namespace TrashCollector.Controllers
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.PickUpOptionsSuccess ? "Your pick up options have been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
@@ -307,7 +306,35 @@ namespace TrashCollector.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> PickUpOptions(PickUpOptionsViewModel model)
+        public async Task<ActionResult> PickUpOptions(ChangePickUpOptionsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var pickUp = new Pick_Up_Options
+                {
+                    Normal = new Time()
+                    {
+                        Day = model.PickUpDay
+                    }
+                };
+                return RedirectToAction("Index", "Home");
+            }
+            return View(model);
+        }
+
+        //CHANGE PICK UP OPTIONS   
+        //GET: MANAGE/CHANGEPICKUPOPTIONS   
+        [AllowAnonymous]
+        public ActionResult ChangePickUpOptions()
+        {
+            return View();
+        }
+        //CHANGE PICK UP OPTIONS POSE
+        //POST: Manage/ChangePickUpOptions
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangePickUpOptions(ChangePickUpOptionsViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -450,17 +477,9 @@ namespace TrashCollector.Controllers
             }
             return false;
         }
-        //private bool HasPickUpOptions()
-        //{
-        //    var user = UserManager.FindById(User.Identity.GetUserId());
-        //    if (user != null)
-        //    {
-        //        return user.CustomerInfo.PickUpOptionsID.TimeID != null;
-        //    }
-        //    return false;
-        //}
-
        
+
+
         private bool HasPhoneNumber()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());

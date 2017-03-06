@@ -13,6 +13,9 @@ namespace TrashCollector.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Use only letters for they days of the week")]
+        [Display(Name = "Pick Up Day")]
+        public string PickUpDay { get; set; }
     }
 
     public class ManageLoginsViewModel
@@ -58,12 +61,16 @@ namespace TrashCollector.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-    public class PickUpOptionsViewModel
+    public class ChangePickUpOptionsViewModel
     {
-        [Required]
         [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Use only letters for they days of the week")]
         [Display(Name = "Pick Up Day")]
         public string PickUpDay { get; set; }
+       
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please use numbers for the number of weeks you will be absent.")]
+        [Display(Name = "Absent")]
+        public int Absent { get; set; }
+
     }
     public class ChangeAddressViewModel
     {

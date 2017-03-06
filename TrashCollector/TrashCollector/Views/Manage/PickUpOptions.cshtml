@@ -1,6 +1,6 @@
-﻿@model TrashCollector.Models.PickUpOptionsViewModel
+﻿@model TrashCollector.Models.ChangePickUpOptionsViewModel
 @{
-    ViewBag.Title = "Pick Up Options";
+    ViewBag.Title = "ChangePick Up Options";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -11,12 +11,27 @@
     <h4>Change Pick Up Options</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    <p>Please type the day that you wish to have your trash picked up. Example 'Monday'.</p>
+    <h3>Change pick up options for next week</h3>
+    <p>Please type the day of the week that you would like to have your trash picked up next week.</p>
     <div class="form-group">
         @Html.LabelFor(m => m.PickUpDay, new { @class = "col-md-2 control-label" })
         
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.PickUpDay, new { @class = "form-control" })
+        </div>
+    </div>
+    <h3>No Pick Up</h3>
+    <p>Please type the number of weeks that you would not like to have your trash picked up.</p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PickUpDay, new { @class = "col-md-2 control-label" })
+
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PickUpDay, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Submit Changes" />
         </div>
     </div>
 }
